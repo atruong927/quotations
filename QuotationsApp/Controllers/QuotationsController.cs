@@ -50,6 +50,7 @@ namespace QuotationsApp.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "QuotationID,Author,Quote,DateAdded,CategoryID")] Quotation quotation)
         {
+            quotation.DateAdded = DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.Quotations.Add(quotation);
