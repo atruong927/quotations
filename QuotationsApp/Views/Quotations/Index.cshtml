@@ -9,6 +9,19 @@
 <p>
     @Html.ActionLink("Create New Quote", "Create", null, new { @class = "btn btn-primary"})
 </p>
+@using GridMvc.Html
+@Html.Grid(Model).Columns(columns =>
+{
+    columns.Add(quote => quote.Quote);
+    columns.Add(quote => quote.Author).SetWidth(150).Sortable(true);
+    columns.Add(quote => quote.Category.Name).Titled("Category").Sortable(true);
+    columns.Add(quote => quote.DateAdded).Titled("Date Added").SetWidth(100).Format("{0:d}").Sortable(true);
+    columns.Add().Encoded(false).Sanitized(false).SetWidth(50).RenderValueAs(item => @Html.ActionLink("Edit", "Edit", new { id = item.QuotationID }, new { @class = "btn btn-warning" }));
+    columns.Add().Encoded(false).Sanitized(false).SetWidth(50).RenderValueAs(item => @Html.ActionLink("Details", "Details", new { id = item.QuotationID }, new { @class = "btn btn-info" }));
+    columns.Add().Encoded(false).Sanitized(false).SetWidth(50).RenderValueAs(item => @Html.ActionLink("Delete", "Delete", new { id = item.QuotationID }, new { @class = "btn btn-danger" }));
+})
+
+
 <table class="table">
     <tr>
         <th>

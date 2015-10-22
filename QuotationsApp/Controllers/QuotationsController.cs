@@ -48,9 +48,24 @@ namespace QuotationsApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "QuotationID,Author,Quote,DateAdded,CategoryID")] Quotation quotation)
+        public ActionResult Create([Bind(Include = "QuotationID,Author,Quote,DateAdded,CategoryID")] Quotation quotation/**, string CategoryName*/)
         {
             quotation.DateAdded = DateTime.Now;
+            //var categories = (from c in db.Quotations
+            //                 select c.CategoryID).Distinct();
+            ////Add New Category with CategoryName if it's not null
+            //if (!String.IsNullOrEmpty(CategoryName))
+            //{
+            //    //Check if CategoryName is already in Categories
+            //    if (categories.Contains(CategoryName))
+            //    {
+                    
+            //    }
+            //    else
+            //    {
+
+            //    }
+            //}
             if (ModelState.IsValid)
             {
                 db.Quotations.Add(quotation);

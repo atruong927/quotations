@@ -21,7 +21,7 @@ namespace QuotationsApp.Models
             get; set;
         }
         [Display(Name = "Date Added")]
-        [DataType(DataType.Date)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:d}")]
         public DateTime DateAdded
         {
             get; set;
@@ -34,5 +34,9 @@ namespace QuotationsApp.Models
         {
             get; set;
         }
+        //public string CategoryName
+        //{
+        //    get; set;
+        //}
     }
 }
