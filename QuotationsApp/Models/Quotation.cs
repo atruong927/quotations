@@ -12,10 +12,12 @@ namespace QuotationsApp.Models
         {
             get; set;
         }
+        [Required]
         public string Author
         {
             get; set;
         }
+        [Required]
         public string Quote
         {
             get; set;
@@ -26,7 +28,7 @@ namespace QuotationsApp.Models
         {
             get; set;
         }
-        public int CategoryID
+        public int? CategoryID
         {
             get; set;
         }

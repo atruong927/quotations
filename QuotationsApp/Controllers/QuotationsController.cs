@@ -63,6 +63,7 @@ namespace QuotationsApp.Controllers
             //Add New Category with CategoryName if it's not null and it's not in Categories already
             if (!String.IsNullOrEmpty(CategoryName) && !categoryNames.Contains(CategoryName))
             {
+                quotation.CategoryID = 1;
                 Category newCategory = new Category();
                 newCategory.Name = CategoryName;
                 quotation.CategoryID = db.Categories.Add(newCategory).CategoryID;
@@ -112,9 +113,16 @@ namespace QuotationsApp.Controllers
             }
             if (ModelState.IsValid)
             {
-                db.Entry(quotation).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.Entry(quotation).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    Console.Write("Error editing quote.");
+                }
             }
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "Name", quotation.CategoryID);
             return View(quotation);
