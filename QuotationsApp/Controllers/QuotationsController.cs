@@ -113,16 +113,9 @@ namespace QuotationsApp.Controllers
             }
             if (ModelState.IsValid)
             {
-                try
-                {
-                    db.Entry(quotation).State = EntityState.Modified;
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-                catch
-                {
-                    Console.Write("Error editing quote.");
-                }
+                db.Entry(quotation).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "Name", quotation.CategoryID);
             return View(quotation);
