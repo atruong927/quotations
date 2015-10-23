@@ -1,22 +1,22 @@
 ﻿@model IEnumerable<QuotationsApp.Models.Quotation>
 
 @{
-    ViewBag.Title = "Quotes Index";
+    ViewBag.Title = "Quotes";
 }
 
-<h2>Quotes</h2>
+<h2>"Quotations"</h2>
 
 <p>
     @Html.ActionLink("Create New Quote", "Create", null, new { @class = "btn btn-primary"})
 </p>
 @using (Html.BeginForm("Index", "Quotations", FormMethod.Get))
 {
-    @Html.Label("Quotation: ");
-    @Html.TextBox("quote");
-    @Html.Label(" Author: ");
-    @Html.TextBox("author");
-    @Html.Label("Category: ");
-    <input type="submit" value="Search" class="btn btn-default" />
+    @Html.TextBox("input");
+    <input type="submit" value="Search" class="btn btn-info" />
+}
+@using (Html.BeginForm("Index", "Quotations", FormMethod.Get))
+{
+    <input type="submit" value="Display All" class="btn btn-success" />
 }
 @using GridMvc.Html
 @Html.Grid(Model).Columns(columns =>
@@ -29,7 +29,6 @@
     columns.Add().Encoded(false).Sanitized(false).RenderValueAs(item => @Html.ActionLink("Details", "Details", new { id = item.QuotationID }, new { @class = "btn btn-info" }));
     columns.Add().Encoded(false).Sanitized(false).RenderValueAs(item => @Html.ActionLink("Delete", "Delete", new { id = item.QuotationID }, new { @class = "btn btn-danger" }));
 })
-
 
 @*<table class="table">
     <tr>

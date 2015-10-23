@@ -34,9 +34,5 @@ namespace QuotationsApp.Models
         {
             get; set;
         }
-        //public string CategoryName
-        //{
-        //    get; set;
-        //}
     }
 }

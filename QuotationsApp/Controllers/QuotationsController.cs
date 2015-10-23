@@ -15,9 +15,16 @@ namespace QuotationsApp.Controllers
         private QuotationsAppContext db = new QuotationsAppContext();
 
         // GET: Quotations
-        public ActionResult Index()
+        public ActionResult Index(string input)
         {
             var quotations = db.Quotations.Include(q => q.Category);
+            //Search for Quote, Category, or Author from input
+            if (!String.IsNullOrEmpty(input))
+            {
+                quotations = quotations.Where(q => q.Quote.Contains(input) || q.Category.Name.Contains(input) || q.Author.Contains(input));
+            }
+            //Display All Button
+            
             return View(quotations.ToList());
         }
 
