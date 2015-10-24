@@ -162,13 +162,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201510141622370_InitialCreate.cs" />
-    <Compile Include="Migrations\201510141622370_InitialCreate.Designer.cs">
-      <DependentUpon>201510141622370_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201510231845329_InitialCreate1.cs" />
-    <Compile Include="Migrations\201510231845329_InitialCreate1.Designer.cs">
-      <DependentUpon>201510231845329_InitialCreate1.cs</DependentUpon>
+    <Compile Include="Migrations\201510232230543_Initial Create.cs" />
+    <Compile Include="Migrations\201510232230543_Initial Create.Designer.cs">
+      <DependentUpon>201510232230543_Initial Create.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
@@ -188,6 +184,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config" />
     <Content Include="Grid.mvc.readme" />
+    <None Include="Properties\PublishProfiles\Quotes2015.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\gridmvc.js" />
     <Content Include="Scripts\gridmvc.lang.ru.js" />
@@ -241,11 +238,8 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201510141622370_InitialCreate.resx">
-      <DependentUpon>201510141622370_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201510231845329_InitialCreate1.resx">
-      <DependentUpon>201510231845329_InitialCreate1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201510232230543_Initial Create.resx">
+      <DependentUpon>201510232230543_Initial Create.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

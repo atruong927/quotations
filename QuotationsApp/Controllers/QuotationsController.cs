@@ -23,8 +23,6 @@ namespace QuotationsApp.Controllers
             {
                 quotations = quotations.Where(q => q.Quote.Contains(input) || q.Category.Name.Contains(input) || q.Author.Contains(input));
             }
-            //Display All Button
-            
             return View(quotations.ToList());
         }
 
@@ -63,10 +61,13 @@ namespace QuotationsApp.Controllers
             //Add New Category with CategoryName if it's not null and it's not in Categories already
             if (!String.IsNullOrEmpty(CategoryName) && !categoryNames.Contains(CategoryName))
             {
-                quotation.CategoryID = 1;
                 Category newCategory = new Category();
                 newCategory.Name = CategoryName;
                 quotation.CategoryID = db.Categories.Add(newCategory).CategoryID;
+            }
+            else if (!String.IsNullOrEmpty(CategoryName) && categoryNames.Contains(CategoryName))
+            {
+                return Content("<script language='javascript'>alert('New Category already inside list. Please go back and select the category from the list.');</script>");
             }
             if (ModelState.IsValid)
             {
